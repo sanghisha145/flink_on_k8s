@@ -1,0 +1,24 @@
+FROM flink
+
+RUN mkdir /opt/flink/input
+
+COPY input.txt /opt/flink/input
+
+COPY flink-basic-example-1.0.jar /opt/flink/lib
+
+
+COPY docker-entrypoint-job.sh /
+
+COPY submit-flink-job.sh /
+
+
+RUN ["chmod", "+x", "/opt/flink/lib/flink-basic-example-1.0.jar"]
+
+RUN ["chmod", "+x", "/submit-flink-job.sh"]
+RUN ["chmod", "+x", "/docker-entrypoint-job.sh"]
+
+
+
+
+
+ENTRYPOINT ["/docker-entrypoint-job.sh"]

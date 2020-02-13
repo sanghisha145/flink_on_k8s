@@ -1,0 +1,3 @@
+thinking of using Docker to build my dependencies on a Continuous Integration (CI) server, so that I don't have to install all the runtimes and libraries on the agents themselves.
+
+
