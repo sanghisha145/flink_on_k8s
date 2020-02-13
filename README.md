@@ -30,31 +30,31 @@ Here, I have performed following steps:
       
       $ kubectl get service
       
-        NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+          NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
         
-        flink-jobmanager   ClusterIP   10.10x.xx.96   <none>        6123/TCP,6124/TCP,8081/TCP   17s
+          flink-jobmanager   ClusterIP   10.10x.xx.96   <none>        6123/TCP,6124/TCP,8081/TCP   17s
   
       $  kubectl create -f jobmanager-deployment.yaml
       
-        deployment.extensions/flink-jobmanager created
+          deployment.extensions/flink-jobmanager created
         
       $ kubectl create -f taskmanager-deployment.yaml
       
-        deployment.extensions/flink-taskmanager created
+          deployment.extensions/flink-taskmanager created
         
       $ kubectl get pod
       
-        NAME                                READY   STATUS              RESTARTS   AGE
+            NAME                                READY        STATUS        RESTARTS         AGE
 
-        flink-jobmanager-6b8fc8dc9b-lzfr5   1/1     Running             0          72s
+            flink-jobmanager-6b8fc8dc9b-lzfr5   1/1          Running             0          72s
 
-        flink-taskmanager-86c87cb4b-b6ld4   0/1     ContainerCreating   0          68s
+            flink-taskmanager-86c87cb4b-b6ld4   0/1          ContainerCreating   0          68s
 
-        flink-taskmanager-86c87cb4b-bncb4   0/1     ContainerCreating   0          68s
+            flink-taskmanager-86c87cb4b-bncb4   0/1          ContainerCreating   0          68s
         
   9. Then I did port forwarding to view results in Flink UI which runs on 8081, hence I used job-manager-pod as we got above
       
-      $ kubectl port-forward flink-jobmanager-6b8fc8dc9b-lzfr5 8083:8081 -> as 8081 port of localhost was already in use , I used 8083
+       $ kubectl port-forward flink-jobmanager-6b8fc8dc9b-lzfr5 8083:8081 -> as 8081 port of localhost was already in use , I used 8083
       
      
      Then on my browser, I did localhost:8083 and boom !!!!
