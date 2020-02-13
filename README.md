@@ -7,7 +7,7 @@ Here, I have performed following steps:
       line .Then this image I have is "flink_task:v1" using this command 
       
       
-      $ docker image build --file DockerfileJob --tag flink_job:v1 .
+         $ docker image build --file DockerfileJob --tag flink_job:v1 .
 
   2. I created "DockerfileTask" for TaskManager which run taskmanager.sh and image is "flink_task:v1"
 
@@ -54,7 +54,9 @@ Here, I have performed following steps:
         
   9. Then I did port forwarding to view results in Flink UI which runs on 8081, hence I used job-manager-pod as we got above
       
-       $ kubectl port-forward flink-jobmanager-6b8fc8dc9b-lzfr5 8083:8081 -> as 8081 port of localhost was already in use , I used 8083
+          $ kubectl port-forward flink-jobmanager-6b8fc8dc9b-lzfr5 8083:8081 
+          
+       -> as 8081 port of localhost was already in use , I used 8083
       
      
      Then on my browser, I did localhost:8083 and boom !!!!
@@ -62,11 +64,11 @@ Here, I have performed following steps:
       
  10. Some commands I found useful
  
-     $ kubectl exec flink-jobmanager-6b8fc8dc9b-lzfr5 -it /bin/bash -> to look inside pod
+         $ kubectl exec flink-jobmanager-6b8fc8dc9b-lzfr5 -it /bin/bash -> to look inside pod
+      
+          $  kubectl describe pod flink-jobmanager-6b8fc8dc9b-lzfr5
      
-     $  kubectl describe pod flink-jobmanager-6b8fc8dc9b-lzfr5
-     
-     $ docker container run --name flinkcontainer1  -p 8085:8081 -p 6125:6123 flink_job:v1 
+         $ docker container run --name flinkcontainer1  -p 8085:8081 -p 6125:6123 flink_job:v1 
 
 
 
