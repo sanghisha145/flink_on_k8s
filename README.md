@@ -69,6 +69,8 @@ Here, I have performed following steps:
           $  kubectl describe pod flink-jobmanager-6b8fc8dc9b-lzfr5
      
          $ docker container run --name flinkcontainer1  -p 8085:8081 -p 6125:6123 flink_job:v1 
+         $ docker images --no-trunc --format '{{.ID}} {{.CreatedSince}}' //Remove docker images since x time
+         $
 
 
 
